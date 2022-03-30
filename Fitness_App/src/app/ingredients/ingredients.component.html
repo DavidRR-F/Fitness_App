@@ -1,0 +1,76 @@
+<div [formGroup]="ingredientForm">
+    <div class="row" formArrayName="ingredients">
+        <div 
+            class="col-xs-12" 
+            *ngFor="let ingredientCtrl of controls; let i = index"
+            [formGroupName]="i"
+        >
+            <div class="pull-right">
+                <button 
+                    class="btn btn-danger" 
+                    type="button" 
+                    [disabled]="ingredientForm.value.ingredients.length === 1"
+                    (click)="onDelete(i)">
+                    X
+                </button>
+            </div>
+            <div class="backlite">
+                <ul class="list-group">
+                    <label for="in">
+                        <input 
+                            type="text"
+                            class="form-control"
+                            formControlName="name"
+                        >
+                    </label>
+                    <li id="in" class="list-group-item">
+                        <label for="cal">Serving Size:</label>
+                        <input 
+                            type="text"
+                            class="form-control"
+                            formControlName="servingSize"
+                        >
+                    </li>
+                    <li id="in" class="list-group-item clearfix">
+                        <div class="ingredient-macros">
+                            <label for="cal">Calories:</label>
+                            <input 
+                                id="cal"
+                                name="cal"
+                                type="number"
+                                class="form-control"
+                                formControlName="calories"
+                            >
+                        </div>
+                        <div class="ingredient-macros">
+                            <label for="carbs">Carbohydrates:</label>
+                            <input 
+                                id="carbs"
+                                name="carbs"
+                                type="number"
+                                class="form-control"
+                                formControlName="carbs"
+                            >
+                        </div>
+                        <div class="ingredient-macros">
+                            <label for="cal">Fats:</label>
+                            <input 
+                                type="number"
+                                class="form-control"
+                                formControlName="fats"
+                            >
+                        </div>
+                        <div class="ingredient-macros">
+                            <label for="cal">Protein:</label>
+                            <input 
+                                type="number"
+                                class="form-control"
+                                formControlName="protein"
+                            >
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,115 @@
+.search{
+    display: flex;
+    align-items: center;
+  }
+
+input{
+    max-width: 150px;
+}
+li{
+    max-width: 300px;
+}
+img{
+    max-width: 200px;
+    min-width: 200px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.pull-left{
+    max-width: 300px;
+}
+.row{
+    padding-top: 2%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+label{
+    margin-left: 5px;
+    color: #8a8888;
+}
+
+.pull-left{
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+input[type=number] {
+    width: 148px;
+}
+
+
+.exercises {
+    float: left;
+    padding-right: 8px;
+}
+
+.pull-right:hover ~ .backlite{
+    border: 0 5px 15px rgb(221, 45, 45);
+    box-shadow: 0 2px 30px rgba(192, 84, 84, 0.685);
+} 
+
+input.ng-invalid{
+    border: 2px solid rgba(192, 84, 84, 0.685);
+    box-shadow: 0 2px 10px rgba(192, 84, 84, 0.685);
+}
+
+input.ng-invalid:hover{
+    border: 2px solid rgba(192, 84, 84, 0.685);
+    box-shadow: 0 2px 20px rgba(192, 84, 84, 1);
+}
+
+input.ng-invalid::after{
+    border: 2px solid rgba(192, 84, 84, 0.685);
+    box-shadow: 0 2px 20px rgba(192, 84, 84, 1);
+}
+
+input.ng-invalid:hover::after{
+    border: 2px solid rgba(192, 84, 84, 0.685);
+    box-shadow: 0 2px 20px rgba(192, 84, 84, 1);
+}
+
+.button.btn{
+    margin-right: 0px;
+}
+
+.backlite{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+form > .row .col-xs-12{
+    flex: 0 0 33.333333%;
+}
+
+ul.list-group{
+    width: 100%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    display: table;
+    table-layout: fixed; /* optional */
+}
+
+ul{
+    display: flex;
+    width: 300px;
+    padding: 1%;
+    margin: 0%;
+}
+
+
+li.list-group-item{
+    display: table-cell;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+}
+
+.backlite .exercises input{
+    max-width: 110px;
+    min-width: 110px;
+}
+
+
+
+  

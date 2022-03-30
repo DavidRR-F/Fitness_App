@@ -1,0 +1,80 @@
+<div class="row">
+    <div class="col-xs-12">
+        <form 
+        [formGroup]="mealForm"
+        [connectForm]="meal | async"
+        (ngSubmit)="onSubmit()"
+        >
+            <div class="pull-left">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="img"> Image Url: </label>
+                            <input 
+                                type="text"
+                                id="img" 
+                                name="img" 
+                                class="form-control"
+                                formControlName="img"
+                            >
+                            <img [src]="mealForm.get('img').value" alt="#">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="name"> Name</label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                class="form-control"
+                                formControlName="name"
+                            >
+                        </div>
+                        <div class="col-md-12">
+                            <label for="macros"> Meal Macros</label>
+                            <ul id="macros" class="list-group">
+                                <li class="list-group-item">Calories: 
+                                    {{ mealForm.get('Calories').value }}
+                                </li>
+                                <li class="list-group-item">Carbohydrates: 
+                                    {{ mealForm.get('Carbs').value }}
+                                </li>
+                                <li class="list-group-item">Fats: 
+                                    {{ mealForm.get('Fats').value }}
+                                </li>
+                                <li class="list-group-item">Protein: 
+                                    {{ mealForm.get('Protein').value }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-success" type="submit" [disabled]="!mealForm.valid">
+                    Save
+                </button>
+                <button class="btn btn-danger" type="button" (click)="onCancel()">
+                    Back
+                </button>
+            </div>
+            <!--ingredients-->
+            <div class="pull-right" style="width: 60%;">
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <div class="search">
+                            <button 
+                                class="btn btn-primary" 
+                                type="button" 
+                                [disabled]="!mealForm.valid"
+                                (click)="onAddIngredient(null)">
+                                Add New
+                            </button>
+                            <app-search-bar [database]="'Ingredients'"
+                            (newEvent)="onAddIngredient($event)"></app-search-bar>
+                        </div>
+                        <hr>
+                        <app-ingredients></app-ingredients>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+a {
+    padding: 20px 40px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    align-self: center;
+    border-radius: 10px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0);
+    transition: border-color ease-in-out .15s, box-shadow .15s ease-in-out;
+}
+.name {
+    font-size: large;
+}
+
+.btn-group{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

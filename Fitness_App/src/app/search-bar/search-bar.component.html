@@ -1,0 +1,34 @@
+<div class="search">
+    <input type="text" placeholder="Search.." style="border: 0px;" 
+    [(ngModel)]="searchText"
+    >
+    <button><i class="glyphicon glyphicon-remove" (click)="clearSearch()"></i></button>
+    <hr>
+</div>
+
+<ul class="list-group" *ngIf="searchText !== ''">
+    <div *ngIf="database === 'Meals' || database === 'All'">
+        <li class="list-group-item" 
+        *ngFor="let meal of meals | async | filter:searchText"
+        (click)="onAdd(meal)"
+        >{{meal.name}}</li>
+    </div>
+    <div *ngIf="database === 'Workouts' || database === 'All'">
+        <li class="list-group-item" 
+        *ngFor="let workout of workouts | async | filter:searchText"
+        (click)="onAdd(workout)"
+        >{{workout.name}}</li>
+    </div>
+    <div *ngIf="database === 'Ingredients'">
+        <li class="list-group-item" 
+        *ngFor="let ingredient of ingredients | async | filter:searchText"
+        (click)="onAdd(ingredient)"
+        >{{ingredient.name}}</li>
+    </div>
+    <div *ngIf="database === 'Exercises'">
+        <li class="list-group-item" 
+        *ngFor="let exercise of exercises | async | filter:searchText"
+        (click)="onAdd(exercise)"
+        >{{exercise.name}}</li>
+    </div>
+</ul>

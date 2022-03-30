@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-success" (click)="onNew()">
+            New Workout
+        </button>
+    </div>
+</div>
+<app-search-bar (search)="onResults($event)"></app-search-bar>
+<hr>
+<div class="row">
+    <div class="col-xs-12">
+        <app-workout
+        *ngFor="let workout of workouts | async; let i = index"
+        [workout]="workout"
+        [index]="i"></app-workout>
+    </div>
+</div>

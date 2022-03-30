@@ -1,0 +1,47 @@
+.calendar, .calendar-header{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.calendar-header{
+    margin-left: 3.8px;
+}
+.calendar-month{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 38%;
+    padding: 10px;
+}
+
+.calendar-days, ul.list-group{
+    flex: 0 0 14.285714%;
+}
+
+.calender{
+    padding: 2%;
+}
+
+ul.list-group{
+    margin-bottom: 0px;
+}
+
+li.list-group-item{
+    font-size: larger;
+    text-align: center;
+    color: rgb(45, 157, 221);
+}
+
+.col-xs-12{
+    margin-top: 0%;
+    margin-bottom: 1%;
+}
+
+h4{
+    width: 300px;
+    text-align: center;
+    font-size: xx-large;
+    margin: 0px;
+    margin-top: 7px;
+}

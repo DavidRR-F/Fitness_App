@@ -1,0 +1,40 @@
+input[type=number] {
+    width: 148px;
+}
+
+
+.ingredient-macros {
+    float: left;
+    padding-right: 8px;
+}
+
+.pull-right:hover ~ .backlite{
+    border: 0 5px 15px rgb(221, 45, 45);
+    box-shadow: 0 2px 30px rgba(192, 84, 84, 0.685);
+} 
+
+input.ng-invalid{
+    border: 2px solid rgba(192, 84, 84, 0.685);
+    box-shadow: 0 2px 10px rgba(192, 84, 84, 0.685);
+}
+
+input.ng-invalid:hover{
+    border: 2px solid rgba(192, 84, 84, 0.685);
+    box-shadow: 0 2px 20px rgba(192, 84, 84, 1);
+}
+
+input.ng-invalid::after{
+    border: 2px solid rgba(192, 84, 84, 0.685);
+    box-shadow: 0 2px 20px rgba(192, 84, 84, 1);
+}
+
+input.ng-invalid:hover::after{
+    border: 2px solid rgba(192, 84, 84, 0.685);
+    box-shadow: 0 2px 20px rgba(192, 84, 84, 1);
+}
+
+.button.btn{
+    margin-right: 0px;
+}
+
+

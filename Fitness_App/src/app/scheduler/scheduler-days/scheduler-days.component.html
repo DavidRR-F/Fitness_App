@@ -1,0 +1,18 @@
+<div class="backlite">
+    <div class="pull-right" [ngStyle]="{'color': !inMonth ? '#745854' : 'grey'}"
+    >{{day.getDate()}}</div>
+    <div class="workout" *ngIf="workout">{{workout.name}}</div>
+    <div class="workout" *ngIf="!workout" [ngStyle]="{'color':'grey'}">Rest Day</div>
+    <div class="macro-graph" *ngIf="meals.length !== 0">
+        <app-macro-graph 
+            [title]="getTotalCals()"
+            [list]="getMacros()"
+        ></app-macro-graph>
+    </div>
+    <div class="macro-graph" *ngIf="meals.length === 0">
+        <app-macro-graph 
+            [title]="totalCals"
+            [list]="proxy_macros"
+        ></app-macro-graph>
+    </div>
+</div>
