@@ -1,0 +1,37 @@
+.backlite{
+  margin-left: 1%;
+  margin-right: 1%;
+  
+}
+h3 {
+    margin: 0 0 10px;
+  }
+
+  pre {
+    background-color: #f5f5f5;
+    padding: 15px;
+  }
+
+  .menu-options{
+    margin: 1%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .search{
+    display: flex;
+  }
+
+  .btn-group > .btn{
+    border-radius: 0px;
+    width: 80px;
+    border-color: transparent;
+    background-color: transparent;
+    color: var(--body-color);
+  }
+
+  .dropdown-menu > li > a{
+    color: var(--body-color);
+  }
+
+  

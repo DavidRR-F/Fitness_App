@@ -1,0 +1,31 @@
+.search{
+    display: flex;
+    align-items: center;
+  }
+
+input{
+    max-width: 300px;
+}
+li{
+    max-width: 300px;
+}
+img{
+    max-width: 296px;
+    min-width: 296px;
+}
+.pull-left{
+    max-width: 300px;
+}
+.row{
+    padding-top: 2%;
+}
+
+label{
+    margin-left: 5px;
+    color: #8a8888;
+}
+
+.pull-left{
+    margin-left: 15px;
+    margin-bottom: 15px;
+}

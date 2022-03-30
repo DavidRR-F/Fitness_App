@@ -1,0 +1,41 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.75);
+    z-index: 60;
+}
+
+.alert-box {
+    position: fixed;
+    top: 30vh;
+    left: 20vw;
+    width: 60vw;
+    padding: 16px;
+    z-index: 100;
+    background: var(--body--bg);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.26);
+}
+
+.alert-box-actions {
+    text-align: center;
+}
+
+button{
+    background-color: transparent;
+    color: var(--body-color);
+    transition: color ease-in-out .30s;
+    border: 0px;
+}
+
+button:hover {
+    color:rgb(45, 157, 221);
+}
+
+button::after {
+    color:rgb(45, 157, 221);
+    opacity: 0;
+    transition: opacity .15s ease-in-out;
+}

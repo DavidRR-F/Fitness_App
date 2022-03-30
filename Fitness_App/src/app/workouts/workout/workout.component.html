@@ -1,0 +1,26 @@
+<div class="backlite" [ngStyle]="deleteStyles">
+    <div class="row" routerLink="/workouts/{{ index }}">
+        
+        <div class="name">
+            {{ workout.name }}
+        </div>
+        
+        <div class="exo">Exercises: {{ exercises }}</div>
+        <div class="exo">Total Sets: {{ sets }}</div>
+        <div class="exo">Total Reps: {{ reps }}</div>
+
+        <div class="btn-group">
+            <button 
+                class="btn btn-danger"
+                type="button"
+                (mouseenter)="getBackShadow()"
+                (mouseleave)="removeBackShadow()"
+                (click)="deleteWorkout()"
+            >
+                X
+            </button>
+        
+        </div>
+        
+    </div>
+</div>

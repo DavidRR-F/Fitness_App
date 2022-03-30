@@ -1,0 +1,18 @@
+
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-success" (click)="onNew()">
+            New Meal
+        </button>
+    </div>
+</div>
+<app-search-bar (search)="onResults($event)"></app-search-bar>
+<hr>
+<div class="row">
+    <div class="col-xs-12">
+        <app-meal-item
+        *ngFor="let meal of meals | async | filter:searchResult; let i = index"
+        [meal]="meal"
+        [index]="i"></app-meal-item>
+    </div>
+</div>

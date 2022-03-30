@@ -1,0 +1,40 @@
+<div class="menu-options">
+  <div class="search">
+    <div class="btn-group"
+      appDrowpdown>
+      <button class="btn dropdown-toggle"
+              type="button">
+              {{ filter }}
+          <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+          <li><a style="cursor: pointer;" (click)="onFilter('All')">All</a></li>
+          <li><a style="cursor: pointer;" (click)="onFilter('Meals')">Meals</a></li>
+          <li><a style="cursor: pointer;" (click)="onFilter('Workouts')">Workouts</a></li>
+      </ul>
+    </div>
+    <app-search-bar [(database)]="filter"
+                    (newEvent)="onAddEvent($event)"
+    ></app-search-bar>
+  </div>
+  <h4>{{key}}</h4>
+  <button class="btn btn-danger" (click)="onDelete()" [disabled]="!modalData">
+    X
+  </button>
+</div>
+
+
+
+<div class="backlite">
+  <mwl-calendar-day-view
+    [events]="CalendarEvents"
+    [viewDate]="key"
+    [refresh]="refresh"
+    (eventClicked)="handleEvent('Clicked', $event.event)"
+    (eventTimesChanged)="eventTimesChanged($event)"
+    [dayStartHour]="5"
+    [dayEndHour]="21"
+  >
+  </mwl-calendar-day-view>
+</div>
+

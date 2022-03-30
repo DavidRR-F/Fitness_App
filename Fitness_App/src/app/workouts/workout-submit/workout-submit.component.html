@@ -1,0 +1,125 @@
+<div class="row">
+    <div class="col-xs-12">
+        <form 
+        [formGroup]="workoutForm"
+        [connectForm]="workout | async"
+        (ngSubmit)="onSubmit()"
+        >
+            <button class="btn btn-success" type="submit" [disabled]="!workoutForm.valid">
+                Save
+            </button>
+            <button class="btn btn-danger" type="button" (click)="onCancel()">
+                Back
+            </button>
+            
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <label for="name">Name</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        class="form-control"
+                        formControlName="name"
+                    >
+                </div>
+            </div>
+            
+
+            <!--exercises-->
+            <hr>
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <div class="search">
+                        <button 
+                            class="btn btn-primary" 
+                            type="button" 
+                            [disabled]="!workoutForm.valid"
+                            (click)="onAddExercise(null)">
+                            Add New
+                        </button>
+                        <app-search-bar 
+                        [database]="'Exercises'"
+                        (newEvent)="onAddExercise($event)"
+                        ></app-search-bar>
+                    </div>
+                    <!-- for loop exercises -->
+                    <div class="row" formArrayName="exercise">
+                        <div 
+                            class="col-xs-12" 
+                            *ngFor="let exercisesCtrl of controls; let i = index"
+                            [formGroupName]="i"
+                        >
+                        <div class="pull-right">
+                            <button 
+                                class="btn btn-danger" 
+                                type="button" 
+                                [disabled]="workoutForm.value.exercise.length === 1"
+                                (click)="onDelete(i)">
+                                X
+                            </button>
+                        </div>
+                        <ul>
+                                    
+                            <div class="exercises">
+                                <label for="exersice">Exercise:</label>
+                                <input 
+                                type="text"
+                                class="form-control"
+                                formControlName="name"
+                                >
+                            </div>
+                            <div class="exercises">
+                                <label for="imgUrl">Image Url:</label>
+                                <input 
+                                    name="imgUrl"
+                                    type="text"
+                                    class="form-control"
+                                    formControlName="imgUrl"
+                                >
+                            </div>
+                       
+                        </ul>
+                            <div class="backlite">
+                                <img [src]="exercisesCtrl.get('imgUrl').value" alt="#">
+                                <ul class="list-group">
+                                    <li class="list-group-item clearfix">
+                                        <div class="exercises">
+                                            <label for="sets">Sets:</label>
+                                            <input 
+                                                name="sets"
+                                                type="number"
+                                                class="form-control"
+                                                formControlName="sets"
+                                            >
+                                        </div>
+                                        <div class="exercises">
+                                            <label for="reps">Reps:</label>
+                                            <input 
+                                                type="number" 
+                                                name="reps"
+                                                class="form-control"
+                                                formControlName="reps"
+                                            >
+                                        </div>
+                                        <div class="exercises">
+                                            <label for="weight">Weight:</label>
+                                            <input 
+                                                name="weight"
+                                                type="number"
+                                                class="form-control"
+                                                formControlName="weight"
+                                            >
+                                        </div>
+                                        
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

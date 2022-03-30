@@ -1,0 +1,46 @@
+.backlite{
+    width: 95%;
+    height: 155px;
+    margin: 4%;
+    position: relative;
+    border-color: 0 5px 5px rgb(45, 157, 221);
+    box-shadow: 0 5px 5px rgba(45, 157, 221, 0.719);
+    transition: border-color ease-in-out .15s, box-shadow .15s ease-in-out;
+}
+.backlite:hover{
+    border-color: 0 5px 15px rgb(45, 157, 221);
+    box-shadow: 0 5px 30px rgba(45, 157, 221, 0.719);
+}
+.backlite::after{
+    border-color: 0 5px 15px rgb(45, 157, 221);
+    box-shadow: 0 5px 30px rgba(45, 157, 221, 0.719);
+    opacity: 0;
+    transition: opacity .15s ease-in-out;
+}
+.backlite:hover > .pull-right{
+    font-size: xx-large;
+}
+
+.backlite .macro-graph {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.pull-right{
+    margin-right: 15px;
+    margin-top: 12px;
+    font-size: x-large;
+    transition: font-size ease-in-out .15s, color .15s ease-in-out;
+}
+.workout{
+    margin-left: 10px;
+    padding-top: 14px;
+    font-size: small;
+}
+
+.macro-graph{
+    width: 90%;
+    margin-left: 10px;
+    margin-right: 10px;
+}

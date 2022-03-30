@@ -1,0 +1,14 @@
+input {
+    color: rgb(45, 157, 221);;
+}
+
+form {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+input.ng-invalid.ng-touched{
+    color: rgb(221, 45, 45);
+    border-color: rgb(221, 45, 45);
+    box-shadow: 0 5px 15px rgba(221, 51, 45, 0.719);
+}

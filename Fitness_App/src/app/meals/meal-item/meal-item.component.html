@@ -1,0 +1,83 @@
+<!-- <a  
+    [routerLink]="[index]"
+    routerLinkActive="active"
+    style="cursor: pointer;"
+    class="list-group-item clearfix"  
+    > -->
+<div class="backlite" [ngStyle]="deleteStyles">
+    <div class="row" routerLink="/meals/{{ index }}">
+        
+            <div class="name">
+                {{ meal.name }}
+            </div>
+            <!--dropdown directive with animation for macros-->
+            
+            <!-- <p class="list-group-item-text">
+                {{ meal.description }}
+            </p> -->
+            
+            <div class="macros">Calories: {{ meal.Calories }}</div>
+            <div class="macros">Carbohydrates: {{ meal.Carbs }}</div>
+            <div class="macros">Fats: {{ meal.Fats }}</div>
+            <div class="macros">Protein: {{ meal.Protein }}</div>
+            
+        
+            <!-- <div class="btn-group"
+                appDrowpdown>
+                <button class="btn btn-primary dropdown-toggle"
+                        type="button">
+                    Macros
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>Calories: {{ meal.Calories }}</li>
+                    <li>Carbohydrates: {{ meal.Carbs }}</li>
+                    <li>Fats: {{ meal.Fats }}</li>
+                    <li>Protein: {{ meal.Protein }}</li>
+                </ul>
+            </div>
+            <div class="btn-group"
+                appDrowpdown>
+                <button class="btn btn-success dropdown-toggle"
+                        type="button">
+                    Ingredients
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li *ngFor="let ingredient of meal.ingredients">
+                        {{ ingredient.servingSize }}: {{ ingredient.name }}
+                    </li>
+                </ul>
+            </div>
+            <div class="btn-group"
+                appDrowpdown>
+                <button 
+                    class="btn btn-primary"
+                    type="button"
+                    (click)="editMeal()"
+                >
+                    Edit
+                </button>
+            </div> -->
+            <div class="btn-group">
+                <button 
+                    class="btn btn-danger"
+                    type="button"
+                    (mouseenter)="getBackShadow()"
+                    (mouseleave)="removeBackShadow()"
+                    (click)="deleteMeal()"
+                >
+                    X
+                </button>
+            </div>
+        
+    </div>
+</div>
+    <!-- <span class="pull-right">
+        <img 
+            src="{{ meal.imagePath }}" 
+            alt="{{ meal.name }}" 
+            class="img-responsive" 
+            style="max-height: 50px;">
+    </span> -->
+<!-- </a> -->
