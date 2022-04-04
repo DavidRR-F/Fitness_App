@@ -9,11 +9,7 @@ export const startWorkoutUpdate = createAction('[Workouts] Start Workout Update'
 export const stopWorkoutUpdate = createAction('[Workouts] Stop Workout Update');
 export const fetchWorkouts = createAction('[Workouts] Fetch Workouts');
 export const storeWorkouts = createAction('[Workouts] Store Workouts');
-export const setWorkouts = createAction('[Workouts] Set Workouts', props<{
-    Workouts: Workout[];
-    editedWorkout: Workout;
-    editedWorkoutIndex: number 
-}>());
+export const setWorkouts = createAction('[Workouts] Set Workouts', props<{Workouts: Workout[];}>());
 export const removeExercise = createAction('[Workouts] Remove Exercise', props<{ index: number }>());
 export const addExercise = createAction('[Workouts] Add Exercise', props<Exercise>());
 

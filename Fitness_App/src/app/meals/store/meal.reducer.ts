@@ -19,19 +19,7 @@ export interface MealState {
 }
 
 const initialState: MealState = {
-    meals: [new Meal ('Test Meal #1', [
-        new Ingredient('Test Ingredient#1', '1 tbp', 50, 50, 50, 50),
-        new Ingredient('Test Ingredient#2', '1 tbp', 30, 30, 30, 30),
-        new Ingredient('Test Ingredient#3', '3 tbp', 320, 320, 320, 320)
-            ]
-        ),
-        new Meal ('Test Meal #2', [
-            new Ingredient('Test Ingredient#1', '1 tbp', 50, 50, 50, 50),
-            new Ingredient('Test Ingredient#2', '1 tbp', 30, 30, 30, 30),
-            new Ingredient('Test Ingredient#3', '3 tbp', 300, 30, 30, 30)
-                ]
-            )
-    ],
+    meals: [],
     editedMeal: null,
     editedMealIndex: -1
     }
@@ -82,7 +70,7 @@ export const mealReducer = createReducer(
         return calcMacros(entriesClone);
     }),
     on(setMeals, (entries, payload) => {
-        return {...entries, payload}
+        return {...entries, meals: [...payload.meals] }
     })
 );
 

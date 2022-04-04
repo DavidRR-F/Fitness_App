@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Store } from "@ngrx/store";
-import { addExercise, removeExercise, storeExercises } from "../exercises/store/exercises.actions";
+import { addExercise, fetchExercises, removeExercise, storeExercises } from "../exercises/store/exercises.actions";
 import * as fromExercises from '../exercises/store/exercises.reducer';
 import { selectExercises } from "../exercises/store/exercises.selectors";
 import { Exercise } from "../shared/models/exercise.model";
@@ -25,5 +25,9 @@ export class ExercisesSevice {
 
     onStoreExercises() {
         this.store.dispatch(storeExercises());
-      }
+    }
+
+    onFetchExercises() {
+        this.store.dispatch(fetchExercises());
+    }
 }

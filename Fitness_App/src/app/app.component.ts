@@ -8,6 +8,12 @@ import { AuthService } from './services/auth/auth.service';
 import { selectUser } from './auth/store/auth.selectors';
 import { PlaceholderDirective } from './shared/directives/placeholder.directive';
 import { AboutComponent } from './about/about.component';
+import { SchedulerService } from './services/scheduler.service';
+import { MealsService } from './services/meals.service';
+import { WorkoutsService } from './services/workouts.service';
+import { IngredientsService } from './services/ingredients.service';
+import { ExercisesSevice } from './services/exercises.service';
+
 
 @Component({
   selector: 'app-root',
@@ -23,16 +29,34 @@ export class AppComponent implements OnInit{
     private store: Store<fromAuth.AuthState>,
     private authService: AuthService,
     private compResolver: ComponentFactoryResolver,
+    private eventService: SchedulerService,
+    private mealService: MealsService,
+    private workoutService: WorkoutsService,
+    private ingService: IngredientsService,
+    private exerciseService: ExercisesSevice
     ) {}
   
   ngOnInit(): void {
     this.store.dispatch(autoLogin());
     this.user = this.store.select(selectUser);
+    //fetchdata
+    this.eventService.onFetchScheduler();
+    this.mealService.onFetchMeals();
+    this.workoutService.onFetchWorkouts();
+    this.ingService.onFetchIngredients();
+    this.exerciseService.onFetchExercises();
   }
 
   onLogout() {
     this.authService.logout();
   }
+
+  onFetch(){
+    //for testing
+  }
+
+  
+
 
 
   //programatically show component

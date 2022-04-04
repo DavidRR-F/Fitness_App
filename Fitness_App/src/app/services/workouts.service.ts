@@ -4,7 +4,7 @@ import { Store } from "@ngrx/store";
 import { Observable, take } from "rxjs";
 import { Exercise } from "../shared/models/exercise.model";
 import { Workout } from "../shared/models/workout.model";
-import { addExercise, addWorkout, removeExercise, removeWorkout, startWorkoutUpdate, stopWorkoutUpdate, storeWorkouts, updateWorkout } from "../workouts/store/workouts.actions";
+import { addExercise, addWorkout, fetchWorkouts, removeExercise, removeWorkout, startWorkoutUpdate, stopWorkoutUpdate, storeWorkouts, updateWorkout } from "../workouts/store/workouts.actions";
 import * as fromWorkouts from '../workouts/store/workouts.reducer';
 import { selectWorkout, selectWorkouts, selectWorkoutsLength } from "../workouts/store/workouts.selector";
 
@@ -89,6 +89,10 @@ import { selectWorkout, selectWorkouts, selectWorkoutsLength } from "../workouts
 
     onStoreWorkouts(){
       this.store.dispatch(storeWorkouts());
+    }
+
+    onFetchWorkouts(){
+      this.store.dispatch(fetchWorkouts());
     }
   
   }

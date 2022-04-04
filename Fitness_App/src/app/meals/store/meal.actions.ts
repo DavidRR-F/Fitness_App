@@ -11,9 +11,5 @@ export const removeIngredient = createAction('[Meals] Remove Ingredient', props<
 export const addIngredient = createAction('[Meals] Add Ingredient', props<Ingredient>());
 export const fetchMeals = createAction('[Meals] Fetch Meals');
 export const storeMeals = createAction('[Meals] Store Meals');
-export const setMeals = createAction('[Meals] Set Meals', props<{
-    meals: Meal[];
-    editedMeal: Meal;
-    editedMealIndex: number 
-}>());
+export const setMeals = createAction('[Meals] Set Meals', props<{meals: Meal[];}>());
 

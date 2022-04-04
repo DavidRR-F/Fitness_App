@@ -18,7 +18,7 @@ export class WorkoutEffects {
     fetchWorkouts = this.actions.pipe(
         ofType(fetchWorkouts),
         switchMap(fetchAction => {
-            return this.http.get<Workout[]>(environment.fetchUrl)
+            return this.http.get<Workout[]>('https://fitnessapp-55468-default-rtdb.firebaseio.com/workouts/-MzWTKN4oeAoqZIA5bib.json')
         }),
         map(workouts => {
             return workouts.map(workout => {
@@ -26,10 +26,7 @@ export class WorkoutEffects {
             });
         }),
         map(workouts => {
-            return setWorkouts({
-                Workouts: workouts,
-                editedWorkout: null,
-                editedWorkoutIndex: -1 });
+            return setWorkouts({ Workouts: workouts });
         })
     );
 
@@ -37,8 +34,8 @@ export class WorkoutEffects {
     storeWorkouts = this.actions.pipe(
         ofType(storeWorkouts),
         withLatestFrom(this.store.select(selectWorkouts)),
-        switchMap(([actionData, workoutState]) => {
-            return this.http.put(environment.fetchUrl, workoutState);
+        switchMap(([actionData, workouts]) => {
+            return this.http.put<Workout[]>(environment.fetchUrl + 'workouts.json', workouts);
         })
     );
 
