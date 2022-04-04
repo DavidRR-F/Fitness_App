@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as fromScheduler from '../scheduler/store/schdeuler.reducer';
-import { addEvent, removeEvent, storeScheduler, updateEvents } from '../scheduler/store/scheduler.actions';
+import { selectEventIds, selectEvents } from '../scheduler/store/schdeuler.reducer';
+import { addEvent, fetchScheduler, removeEvent, setKeys, storeScheduler, updateEvents } from '../scheduler/store/scheduler.actions';
 // import { selectAll, selectEvents } from '../scheduler/store/scheduler.selectors';
 import { Event } from '../shared/models/event.model';
 
@@ -34,6 +35,10 @@ export class SchedulerService {
     return this.store.select(fromScheduler.selectAll);
   }
 
+  onSelectEventIds(){
+    this.store.select(fromScheduler.selectEventIds);
+  }
+
   getDaysInMonth(month: number){
     var date = new Date();
     var days = [];
@@ -56,11 +61,20 @@ export class SchedulerService {
         days.unshift(new Date(day));
       }
     }
+    // this.store.dispatch(setKeys({dates: days.map(value => value.toString())}))
     return days;
+  }
+
+  onSetKeys(days: string[]){
+    this.store.dispatch(setKeys({dates: days}));
   }
 
   onStoreScheduler(){
     this.store.dispatch(storeScheduler());
+  }
+
+  onFetchScheduler(){
+    this.store.dispatch(fetchScheduler());
   }
 
 }

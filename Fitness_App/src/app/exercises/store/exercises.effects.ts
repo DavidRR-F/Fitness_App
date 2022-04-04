@@ -7,15 +7,16 @@ import { Exercise } from "src/app/shared/models/exercise.model";
 import { environment } from "src/environments/environment";
 import * as ExerciseActions from './exercises.actions';
 import * as fromExercises from './exercises.reducer';
+import { selectExercises } from "./exercises.selectors";
 
 @Injectable({providedIn: 'root'})
 export class ExerciseEffects {
 
     @Effect()
-    fetchIngredients = this.actions.pipe(
+    fetchExercises = this.actions.pipe(
         ofType(ExerciseActions.fetchExercises),
         switchMap(fetchAction => {
-            return this.http.get<Exercise[]>(environment.fetchUrl)
+            return this.http.get<Exercise[]>('https://fitnessapp-55468-default-rtdb.firebaseio.com/exercises/-MzWRP_DnHE6OS3K2Dw0.json')
         }),
         map(exercises => {
             return ExerciseActions.setExercises({exercises: exercises})
@@ -23,11 +24,11 @@ export class ExerciseEffects {
     );
 
     @Effect({dispatch: false})
-    storeMeals = this.actions.pipe(
+    storeExercises = this.actions.pipe(
         ofType(ExerciseActions.storeExercises),
-        withLatestFrom(this.store.select('exercises')),
-        switchMap(([actionData, ingredientsState]) => {
-            return this.http.put(environment.fetchUrl, ingredientsState);
+        withLatestFrom(this.store.select(selectExercises)),
+        switchMap(([actionData, exercises]) => {
+            return this.http.put<Exercise[]>(environment.fetchUrl + 'exercises.json', exercises);
         })
     );
 

@@ -12,30 +12,7 @@ export interface WorkoutState {
 }
 
 const initialState: WorkoutState = {
-    Workouts: [
-        new Workout('Test Workout', [
-        new Exercise (
-            'Test Exercise #1',
-            defaultImg,
-            12, 3, 145
-        ),
-        new Exercise (
-            'Test Exercise #2',
-            defaultImg,
-            12, 3, 145
-        ),
-        new Exercise (
-            'Test Exercise #3',
-            defaultImg,
-            12, 3, 145
-        ),
-        new Exercise (
-            'Test Exercise #4',
-            defaultImg,
-            12, 3, 145
-        )
-        ]),
-    ],
+    Workouts: [],
     editedWorkout: null,
     editedWorkoutIndex: -1
 }
@@ -82,7 +59,7 @@ export const workoutReducer = createReducer(
         return entriesClone;
     }),
     on(setWorkouts, (entries, payload) => {
-        return{...entries, payload};
+        return{...entries, Workouts: [...payload.Workouts]};
     })
 );
 

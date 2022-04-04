@@ -7,11 +7,7 @@ export interface IngredientState {
 }
 
 const initialState: IngredientState = {
-    ingredients: [
-        new Ingredient('Test Ingredient#1', '1 tbp', 50, 50, 50, 50),
-        new Ingredient('Test Ingredient#2', '1 tbp', 30, 30, 30, 30),
-        new Ingredient('Test Ingredient#3', '3 tbp', 320, 320, 320, 320)
-      ]
+    ingredients: []
     }
     
 
@@ -29,7 +25,7 @@ export const ingredientReducer = createReducer(
         return entriesClone;
     }),
     on(setIngredients, (entries, payload) => {
-        return {...entries, ingredients: payload.ingredients};
+        return {...entries, ingredients: [...payload.ingredients]};
     })
 );
 

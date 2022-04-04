@@ -9,28 +9,7 @@ export interface ExerciseState {
 }
 
 const initialState: ExerciseState = {
-    exercises: [
-        new Exercise (
-            'Test Exercise #1',
-            defaultImg,
-            12, 3, 145
-        ),
-        new Exercise (
-            'Test Exercise #2',
-            defaultImg,
-            12, 3, 145
-        ),
-        new Exercise (
-            'Test Exercise #3',
-            defaultImg,
-            12, 3, 145
-        ),
-        new Exercise (
-            'Test Exercise #4',
-            defaultImg,
-            12, 3, 145
-        )
-    ]
+    exercises: []
 }
 
 export const exerciseReducer = createReducer(
@@ -46,7 +25,7 @@ export const exerciseReducer = createReducer(
         return entriesClone;
     }),
     on(setExercises, (entries, payload) => {
-        return {...entries, exercises: payload.exercises};
+        return {...entries, exercises: [...payload.exercises]};
     })
 );
 

@@ -7,6 +7,7 @@ import { environment } from "src/environments/environment";
 import { Meal } from "../../shared/models/meal.model";
 import * as MealActions from './meal.actions';
 import * as fromMeals from './meal.reducer';
+import { selectMeals } from "./meal.selectors";
 
 @Injectable({providedIn: 'root'})
 export class MealEffects {
@@ -15,7 +16,7 @@ export class MealEffects {
     fetchMeals = this.actions.pipe(
         ofType(MealActions.fetchMeals),
         switchMap(fetchAction => {
-            return this.http.get<Meal[]>(environment.fetchUrl)
+            return this.http.get<Meal[]>('https://fitnessapp-55468-default-rtdb.firebaseio.com/meals/-MzWSaSG-GRB-nFR1Him.json')
         }),
         map(meals => {
             return meals.map(meal => {
@@ -23,19 +24,16 @@ export class MealEffects {
             });
         }),
         map(meals => {
-            return MealActions.setMeals({
-                meals: meals,
-                editedMeal: null,
-                editedMealIndex: -1 });
+            return MealActions.setMeals({meals: meals});
         })
     );
 
     @Effect({dispatch: false})
     storeMeals = this.actions.pipe(
         ofType(MealActions.storeMeals),
-        withLatestFrom(this.store.select('meals')),
-        switchMap(([actionData, mealsState]) => {
-            return this.http.put(environment.fetchUrl, mealsState);
+        withLatestFrom(this.store.select(selectMeals)),
+        switchMap(([actionData, meals]) => {
+            return this.http.put<Meal[]>(environment.fetchUrl + 'meals.json', meals);
         })
     );
 

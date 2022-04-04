@@ -45,6 +45,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { PlaceholderDirective } from './shared/directives/placeholder.directive';
 import { AboutComponent } from './about/about.component';
+import { IngredientEffects } from './ingredients/store/ingredients.effects';
+import { ExerciseEffects } from './exercises/store/exercises.effects';
+import { SchedulerEffects } from './scheduler/store/scheduler.effects';
 
 @NgModule({
   declarations: [
@@ -97,7 +100,10 @@ import { AboutComponent } from './about/about.component';
     EffectsModule.forRoot([
       AuthEffects, 
       MealEffects, 
-      WorkoutEffects
+      WorkoutEffects,
+      IngredientEffects,
+      ExerciseEffects,
+      SchedulerEffects
     ]),
     ReactiveFormsModule
   ],

@@ -3,7 +3,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 import { select, Store } from '@ngrx/store';
 import { Observable, Subscription, take } from 'rxjs';
 import { Meal } from '../shared/models/meal.model';
-import { addIngredient, addMeal, removeIngredient, removeMeal, startMealUpdate, stopMealUpdate, storeMeals, updateMeal } from '../meals/store/meal.actions';
+import { addIngredient, addMeal, fetchMeals, removeIngredient, removeMeal, startMealUpdate, stopMealUpdate, storeMeals, updateMeal } from '../meals/store/meal.actions';
 import * as fromMeals from '../meals/store/meal.reducer';
 import { selectIngredientsLength, selectMeal, selectMeals, selectMealsLength } from '../meals/store/meal.selectors';
 import { Ingredient } from '../shared/models/ingredient.model';
@@ -62,6 +62,10 @@ export class MealsService {
 
   onStoreMeals() {
     this.store.dispatch(storeMeals());
+  }
+
+  onFetchMeals() {
+    this.store.dispatch(fetchMeals());
   }
 
   onMealForm(index: number) {

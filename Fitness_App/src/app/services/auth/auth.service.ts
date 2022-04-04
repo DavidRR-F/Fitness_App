@@ -28,13 +28,11 @@ export class AuthService {
   
   constructor(
     private store: Store<fromAuth.AuthState>,
-    private mealsService: MealsService,
     private execiseService: ExercisesSevice
   ) { }
 
   logout() {
     this.execiseService.onStoreExercises();
-    // this.mealsService.onStoreMeals();
     this.store.dispatch(AuthActions.logout());
 
     localStorage.removeItem('userData'); 

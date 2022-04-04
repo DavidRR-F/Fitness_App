@@ -8,7 +8,10 @@ export const updateEvents = createAction('[Scheduler] Update Events', props<{dat
 export const fetchScheduler = createAction('[Scheduler] Fetch Scheduler');
 export const storeScheduler = createAction('[Scheduler] Store Scheduler');
 export const setScheduler = createAction('[Scheduler] Set Scheduler', props<
-{ 
-    dates: [],
-    entries: { [key:string]: { id: string, events: Event[] } };
-}>());
+{ [key:string]:{ 
+    id: string,
+    events: Event[]
+    }
+}
+>());
+export const setKeys = createAction('[Scheduler] Set Keys', props<{dates: string[]}>())
