@@ -25,14 +25,13 @@
             </ul>
         </div>
         <div class="calendar">
-            <div class="calendar-days" *ngFor="let day of days">
+            <div class="calendar-days" [@days]="state" *ngFor="let day of days; let i = index">
                 <app-scheduler-days 
                     [day]="day"
                     [inMonth]="getInMonth(day)"
                     [events]="eventSub(day) | async"
                     routerLink="/calendar/{{day}}"
                 >
-                    <!-- pass info stuff in tag (day and meal/workout info) -->
                 </app-scheduler-days>  
             </div>
         </div>

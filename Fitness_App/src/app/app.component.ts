@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, OnInit, ViewChild } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { autoLogin } from './auth/store/auth.actions';
@@ -20,7 +20,7 @@ import { ExercisesSevice } from './services/exercises.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, OnDestroy{
   
   @ViewChild(PlaceholderDirective) aboutHost: PlaceholderDirective;
   user: Observable<User>;
@@ -34,7 +34,8 @@ export class AppComponent implements OnInit{
     private workoutService: WorkoutsService,
     private ingService: IngredientsService,
     private exerciseService: ExercisesSevice
-    ) {}
+    ) {
+    }
   
   ngOnInit(): void {
     this.store.dispatch(autoLogin());
@@ -45,6 +46,10 @@ export class AppComponent implements OnInit{
     this.workoutService.onFetchWorkouts();
     this.ingService.onFetchIngredients();
     this.exerciseService.onFetchExercises();
+  }
+
+  ngOnDestroy(): void {
+      //store data w/ put requests
   }
 
   onLogout() {

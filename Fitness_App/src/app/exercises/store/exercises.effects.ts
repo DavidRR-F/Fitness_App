@@ -16,7 +16,7 @@ export class ExerciseEffects {
     fetchExercises = this.actions.pipe(
         ofType(ExerciseActions.fetchExercises),
         switchMap(fetchAction => {
-            return this.http.get<Exercise[]>('https://fitnessapp-55468-default-rtdb.firebaseio.com/exercises/-MzWRP_DnHE6OS3K2Dw0.json')
+            return this.http.get<Exercise[]>('https://fitnessapp-55468-default-rtdb.firebaseio.com/exercises.json')
         }),
         map(exercises => {
             return ExerciseActions.setExercises({exercises: exercises})

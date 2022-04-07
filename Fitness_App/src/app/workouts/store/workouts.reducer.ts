@@ -20,9 +20,7 @@ const initialState: WorkoutState = {
 export const workoutReducer = createReducer(
     initialState,
     on(addWorkout, (entries, payload) => {
-        const entriesClone: WorkoutState = JSON.parse(JSON.stringify(entries));
-        entriesClone.Workouts.push(payload);
-        return entriesClone;
+        return {...entries, Workouts: [...entries.Workouts, payload.workout]};
     }),
     on(removeWorkout, (entries, payload) => {
         const entriesClone: WorkoutState = JSON.parse(JSON.stringify(entries));
@@ -31,7 +29,7 @@ export const workoutReducer = createReducer(
     }),
     on(updateWorkout, (entries, payload) => {
         const entriesClone: WorkoutState = JSON.parse(JSON.stringify(entries));
-        entriesClone.Workouts.splice(entriesClone.editedWorkoutIndex, 1, payload)
+        entriesClone.Workouts.splice(entriesClone.editedWorkoutIndex, 1, payload.workout)
         return entriesClone;
     }),
     on(startWorkoutUpdate, (entries, payload) => {

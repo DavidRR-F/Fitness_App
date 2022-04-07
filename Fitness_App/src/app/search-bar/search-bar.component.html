@@ -10,13 +10,13 @@
     <div *ngIf="database === 'Meals' || database === 'All'">
         <li class="list-group-item" 
         *ngFor="let meal of meals | async | filter:searchText"
-        (click)="onAdd(meal)"
+        (click)="onAdd(meal, 'meal')"
         >{{meal.name}}</li>
     </div>
     <div *ngIf="database === 'Workouts' || database === 'All'">
         <li class="list-group-item" 
         *ngFor="let workout of workouts | async | filter:searchText"
-        (click)="onAdd(workout)"
+        (click)="onAdd(workout, 'workout')"
         >{{workout.name}}</li>
     </div>
     <div *ngIf="database === 'Ingredients'">

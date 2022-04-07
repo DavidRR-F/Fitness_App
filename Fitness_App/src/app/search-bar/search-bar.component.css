@@ -68,15 +68,16 @@ li{
     border-color: transparent;
     cursor: pointer;
     transition: color ease-in-out .30s, box-shadow ease-in-out .30s;
+    
 }
 
 ul div li {
     position: relative;
-}
-
-ul {
-    position: absolute;
     z-index: 1;
+}
+ul.list-group {
+    position: absolute;
+    z-index: 3;
     width: 21%;
 }
 

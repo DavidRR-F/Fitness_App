@@ -28,4 +28,6 @@ export class Meal {
         }
         this.Calories = amount;
     }
+
+    
 }

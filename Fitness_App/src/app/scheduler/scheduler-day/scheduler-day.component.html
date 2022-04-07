@@ -14,6 +14,7 @@
       </ul>
     </div>
     <app-search-bar [(database)]="filter"
+                    (eventType)="onType($event)"
                     (newEvent)="onAddEvent($event)"
     ></app-search-bar>
   </div>
@@ -22,8 +23,6 @@
     X
   </button>
 </div>
-
-
 
 <div class="backlite">
   <mwl-calendar-day-view
