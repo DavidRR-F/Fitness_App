@@ -22,6 +22,7 @@ export class SearchBarComponent implements OnInit, DoCheck {
   @Output() newEvent: EventEmitter<Meal | Workout | Ingredient | Exercise> 
   = new EventEmitter<Meal | Workout | Ingredient | Exercise>();
   meals: Observable<Meal[]>;
+  @Output() eventType: EventEmitter<string> = new EventEmitter<string>();
   workouts: Observable<Workout[]>;
   ingredients: Observable<Ingredient[]>;
   exercises: Observable<Exercise[]>;
@@ -53,10 +54,9 @@ export class SearchBarComponent implements OnInit, DoCheck {
     this.searchText = '';
   }
 
-  onAdd(event: Meal | Workout | Ingredient | Exercise){
+  onAdd(event: Meal | Workout | Ingredient | Exercise, type: string){
+    this.eventType.emit(type);
     this.newEvent.emit(event);
     this.searchText = '';
   }
-
-  
 }

@@ -19,7 +19,7 @@ import { selectWorkout, selectWorkouts, selectWorkoutsLength } from "../workouts
     ) { }
   
     onAddWorkout(workout: Workout){
-      this.store.dispatch(addWorkout(workout));
+      this.store.dispatch(addWorkout({workout: workout}));
     }
   
     getNewWorkout(){
@@ -41,7 +41,7 @@ import { selectWorkout, selectWorkouts, selectWorkoutsLength } from "../workouts
     }
   
     onUpdateWorkout(workout: Workout){
-      this.store.dispatch(updateWorkout(workout));
+      this.store.dispatch(updateWorkout({workout: workout}));
     }
   
     onAddExercise(exercise: Exercise){

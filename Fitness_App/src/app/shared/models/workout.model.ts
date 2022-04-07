@@ -10,4 +10,5 @@ export class Workout{
             this.name = name;
             this.exercise = exercise;
         }
+    
 }

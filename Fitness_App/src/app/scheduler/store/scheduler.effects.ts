@@ -30,7 +30,6 @@ export class SchedulerEffects {
         withLatestFrom(this.store.select(fromScheduler.selectEvents)),
         switchMap(([actionData, Schedule]) => {
             return this.http.put<{
-                dates: string[], 
                 entries: { [key:string]: {id: string, events: Event[]}  }
             }>
             ('https://fitnessapp-55468-default-rtdb.firebaseio.com/scheduler/-MzpBYdMdV5Oeh5yoB41.json', 

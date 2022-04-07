@@ -48,6 +48,7 @@ import { AboutComponent } from './about/about.component';
 import { IngredientEffects } from './ingredients/store/ingredients.effects';
 import { ExerciseEffects } from './exercises/store/exercises.effects';
 import { SchedulerEffects } from './scheduler/store/scheduler.effects';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { SchedulerEffects } from './scheduler/store/scheduler.effects';
     SchedulerDayComponent,
     SearchBarComponent,
     LoadingSpinnerComponent,
-    AboutComponent
+    AboutComponent,
+    AlertComponent
   ],
   imports: [
     FormsModule,

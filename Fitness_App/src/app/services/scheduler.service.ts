@@ -25,7 +25,7 @@ export class SchedulerService {
   }
 
   onUpdateEvents(key: Date, events: Event[]){
-    this.store.dispatch(updateEvents({date: key.toString(), events: { events: events } }));
+    this.store.dispatch(updateEvents( { id: key.toString(), events: events } ));
   }
 
   onSchedulerSub(day: Date){

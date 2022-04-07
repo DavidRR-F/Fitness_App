@@ -29,6 +29,7 @@ const defaultSchedule = {
 }
 
 const testSchedule = {
+    dates: [],
     entities: {}
 }
 
@@ -37,7 +38,7 @@ export const initialState: State = scheduleAdapter.getInitialState(testSchedule)
 export const schedulerReducer = createReducer(
     initialState,
     on(updateEvents, (action, payload) => {
-        return scheduleAdapter.updateOne({id: payload.date, changes: payload.events}, initialState)
+        return {...action, entities: {...action.entities, [payload.id]: payload } };
     }),
     on(removeEvent, (action, payload) => {
         return scheduleAdapter.removeOne(payload.index, initialState);

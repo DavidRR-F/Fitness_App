@@ -39,6 +39,7 @@ const colors: any = {
 export class SchedulerDayComponent implements OnInit, OnDestroy {
 
   filter: string = 'All';
+  eventType: string;
   date: Date;
   events: Event[];
   key: Date;
@@ -89,7 +90,7 @@ export class SchedulerDayComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-      this.schedulerService.onUpdateEvents(this.key, this.events);
+    this.schedulerService.onUpdateEvents(this.key, this.events);
   }
 
   eventTimesChanged({
@@ -145,6 +146,7 @@ export class SchedulerDayComponent implements OnInit, OnDestroy {
 
   handleEvent(action: string, event: CalendarEvent): void {
     this.modalData = { event, action };
+    console.log(this.modalData.event);
   }
 
   onDelete(){
@@ -157,13 +159,17 @@ export class SchedulerDayComponent implements OnInit, OnDestroy {
   }
 
   onAddEvent(event: Meal | Workout){
-    if(event.constructor === Meal){
-      this.addEvent(event.name, 5, 6, 'meal');
-      this.events = [...this.events, new Event(event, 'meal', 5, 6)];
+    if(this.eventType === 'workout'){
+      this.addEvent(event.name, 5, 6, this.eventType);
+      this.events = [...this.events, new Event(event, this.eventType, 5, 6)];
     } else {
-      this.addEvent(event.name, 5, 6, 'workout');
-      this.events = [...this.events, new Event(event, 'workout', 5, 6)];
+      this.addEvent(event.name, 5, 6, this.eventType);
+      this.events = [...this.events, new Event(event, this.eventType, 5, 6)];
     }
+  }
+
+  onType(event: string){
+    this.eventType = event;
   }
 
 }

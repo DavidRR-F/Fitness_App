@@ -15,18 +15,18 @@ import { Workout } from 'src/app/shared/models/workout.model';
 })
 export class SchedulerDaysComponent implements OnInit {
 
-  @Input() day;
-  @Input() inMonth;
-  @Input() events: Array<Event>;
+  @Input('day') day: Date;
+  @Input('inMonth') inMonth: boolean;
+  @Input('events') events: Array<Event>;
 
   workout: Workout;
   meals: Meal[] = [];
 
-  totalCals = 'Calories: 2000';
+  totalCals = 'Calories: 0';
   proxy_macros: Array<MacroModel> = [
-    {value: 220, color: 'blue', size: '20px', legend: 'C'},
-    {value: 150, color: 'green', size: '20px', legend: 'P'},
-    {value: 70, color: 'yellow', size: '20px', legend: 'F'}
+    {value: 0, color: 'blue', size: '20px', legend: 'C'},
+    {value: 0, color: 'green', size: '20px', legend: 'P'},
+    {value: 0, color: 'yellow', size: '20px', legend: 'F'}
   ]
 
   constructor(
