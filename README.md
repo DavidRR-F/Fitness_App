@@ -1,2 +1,2 @@
 # Fitness_App
-Creating Fitness App for angular practice
+First Draft Fitness App for angular practice
